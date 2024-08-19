@@ -15,6 +15,7 @@ class CustomerAuthController extends Controller
 {
     public function login(AuthRequest $request)
     {
+
         $customer = Customer::where('email', $request->email)->first();
 
         if (!$customer || !Hash::check($request->password, $customer->password)) {
@@ -42,9 +43,9 @@ class CustomerAuthController extends Controller
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
                 'phone' => $validated['phone'],
-                'division_id' => $validated['division_id'],
-                'district_id' => $validated['district_id'],
-                'upazila_id' => $validated['upazila_id'],
+                // 'division_id' => $validated['division_id'],
+                // 'district_id' => $validated['district_id'],
+                // 'upazila_id' => $validated['upazila_id'],
                 'address' => $validated['address'],
             ]);
 

@@ -42,7 +42,7 @@ class WebsiteController extends Controller
      */
     public function show($product)
     {
-        $data = Product::findOrFail($product)->load('store', 'reviews', 'category.descendants');
+        $data = Product::findOrFail($product)->load('store', 'reviews', 'category.descendants', 'gallery');
         return $this->successResponse('Data Retrieved Successfully', ['product' => $data]);
     }
 
@@ -59,12 +59,31 @@ class WebsiteController extends Controller
 
     public function getCategoryProducts($categoryId)
     {
+        $category = Category::findOrFail($categoryId);
         $products = Product::where('category_id', $categoryId)->take(50)->get();
 
         $data = [
             'products' => $products,
+            'category' => $category
         ];
 
         return $this->successResponse('Data Retrieved Successfully', ['data' => $data]);
+    }
+
+    public function getCartItems(Request $request)
+    {
+        $productIds = $request->input('ids');
+
+        if (empty($productIds)) {
+            return response()->json(['message' => 'No product IDs provided'], 400);
+        }
+
+        $products = Product::whereIn('id', $productIds)->get();
+
+        return response()->json([
+            'data' => [
+                'products' => $products,
+            ]
+        ]);
     }
 }

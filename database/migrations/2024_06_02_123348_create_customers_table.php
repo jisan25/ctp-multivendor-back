@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,10 +16,10 @@ return new class extends Migration
             $table->string('email')->unique()->index();
             $table->string('password');
             $table->string('phone');
-            $table->integer('division_id');
-            $table->integer('district_id');
-            $table->integer('upazila_id');
-            $table->tinyText('address');
+            $table->integer('division_id')->nullable();
+            $table->integer('district_id')->nullable();
+            $table->integer('upazila_id')->nullable();
+            $table->tinyText('address')->nullable();
             $table->timestamps();
         });
     }

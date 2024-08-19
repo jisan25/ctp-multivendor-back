@@ -32,6 +32,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductAttribute::class);
     }
+    public function gallery()
+    {
+        return $this->hasMany(ProductGallery::class);
+    }
 
     protected $fillable = [
         'store_id',

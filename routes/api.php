@@ -134,15 +134,18 @@ Route::prefix('v1')->group(function () {
             // -----  customer profile routes ------
             Route::get('profile', [CustomerProfileController::class, 'index']);
             Route::put('profile', [CustomerProfileController::class, 'update']);
+            Route::put('profile/password', [CustomerProfileController::class, 'updatePassword']);
             // ----- end customer profile routes ------
 
             // ----- Customer order routes ------
             Route::prefix('orders')->middleware('customer.owns:order')->group(function () {
-                Route::get('/', [CustomerOrderController::class, 'index']);
-                Route::post('/', [CustomerOrderController::class, 'store']);
+
                 Route::get('{order}', [CustomerOrderController::class, 'show']);
                 Route::put('{order}', [CustomerOrderController::class, 'update']);
             });
+            Route::get('/orders', [CustomerOrderController::class, 'index']);
+            Route::post('orders', [CustomerOrderController::class, 'store']);
+
             // ----- End customer order routes ------
 
             // ----- Customer order details routes ------
@@ -197,6 +200,7 @@ Route::prefix('v1')->group(function () {
     Route::get('category-types', [CommonCategoryController::class, 'categoryTypes']);
 
     Route::get('/categoryProduct/{categoryId}', [WebsiteController::class, 'getCategoryProducts']);
+    Route::post('/cart-items', [WebsiteController::class, 'getCartItems']);
 
     /** --- product attributes ----- */
 

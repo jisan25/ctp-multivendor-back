@@ -24,13 +24,12 @@ class CustomerOrderController extends Controller
 
         $query = Order::where('customer_id', Auth::id());
 
-        $filterCols = ["status", "store_id", "type"];
 
         $search_columns = ["order_id"];
 
-        $this->applyFilterSortSearch($filterCols, $search_columns, $query, $request);
+        $this->applyFilterSortSearch($search_columns, $query, $request);
 
-        $orders = $query->with('store')->paginate(10);
+        $orders = $query->with('store', 'orderDetails.product')->paginate(10);
 
         return $this->successResponse('Data Retrieved Successfully', ['customer_orders' => $orders]);
     }

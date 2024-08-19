@@ -28,7 +28,7 @@ class CustomerRequest extends FormRequest
             'full_name' => 'required|string|max:255',
             'email' => [
                 'required',
-                'email:rfc,dns', // Adding RFC and DNS checks
+                // 'email:rfc,dns', // Adding RFC and DNS checks
                 'max:255',
                 Rule::unique('customers', 'email'),
             ],
@@ -36,13 +36,12 @@ class CustomerRequest extends FormRequest
                 'required',
                 'string',
                 'min:6',
-                'confirmed'
             ],
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
-            'division_id' => 'required|integer|exists:divisions,id',
-            'district_id' => 'required|integer|exists:districts,id',
-            'upazila_id' => 'required|integer|exists:upazilas,id',
+            // 'division_id' => 'required|integer|exists:divisions,id',
+            // 'district_id' => 'required|integer|exists:districts,id',
+            // 'upazila_id' => 'required|integer|exists:upazilas,id',
         ];
         if ($this->isMethod('patch') || $this->isMethod('put')) {
             $customer = MethodHelper::getCustomer();
@@ -50,7 +49,7 @@ class CustomerRequest extends FormRequest
 
             $rules['email'] = [
                 'required',
-                'email:rfc,dns', // Adding RFC and DNS checks
+                // 'email:rfc,dns', // Adding RFC and DNS checks
                 'max:255',
                 Rule::unique('customers', 'email')->ignore($customerId),
             ];
