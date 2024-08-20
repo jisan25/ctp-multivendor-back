@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\v1\Admin;
+namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Helpers\ImageHelper;
 use App\Models\Vendor\Store;
@@ -32,7 +32,7 @@ class StoreController extends Controller
         return $this->successResponse('Data Retrieved Successfully', ['data' => $data]);
     }
 
-  
+
 
     /**
      * Display the specified resource.

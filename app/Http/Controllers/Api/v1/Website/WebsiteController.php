@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\v1\Website;
+namespace App\Http\Controllers\Api\v1\Website;
 
 use App\Models\Product\Size;
 use Illuminate\Http\Request;
