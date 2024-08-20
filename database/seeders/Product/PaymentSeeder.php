@@ -53,6 +53,6 @@ class PaymentSeeder extends Seeder
         //     'amount' => 70,
         //     'status' => 'success',
         // ]);
-        Payment::factory()->count(1000)->create();
+        Payment::factory()->count(100)->create();
     }
 }

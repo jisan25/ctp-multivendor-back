@@ -13,30 +13,37 @@ class ProductGallerySeeder extends Seeder
      */
     public function run(): void
     {
-        ProductGallery::create([
-            'product_id' => 1,
-            'product_image' => '/images/products/image-gallery.jpg',
-        ]);
-        ProductGallery::create([
-            'product_id' => 1,
-            'product_image' => '/images/products/image-gallery-2.jpg',
-        ]);
-        ProductGallery::create([
-            'product_id' => 1,
-            'product_image' => '/images/products/image-gallery-3.jpg',
-        ]);
+        for ($i = 1; $i <= 100; $i++) {
+            if ($i % 2 !== 0) {
+                // Odd-numbered product IDs
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery.jpg',
+                ]);
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery-2.jpg',
+                ]);
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery-3.jpg',
+                ]);
+            } else {
+                // Even-numbered product IDs
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery-4.jpg',
+                ]);
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery-5.jpg',
+                ]);
+                ProductGallery::create([
+                    'product_id' => $i,
+                    'product_image' => 'images/products/image-gallery-6.jpg',
+                ]);
+            }
+        }
 
-        ProductGallery::create([
-            'product_id' => 2,
-            'product_image' => '/images/products/image-gallery-4.jpg',
-        ]);
-        ProductGallery::create([
-            'product_id' => 2,
-            'product_image' => '/images/products/image-gallery-5.jpg',
-        ]);
-        ProductGallery::create([
-            'product_id' => 2,
-            'product_image' => '/images/products/image-gallery-6.jpg',
-        ]);
     }
 }

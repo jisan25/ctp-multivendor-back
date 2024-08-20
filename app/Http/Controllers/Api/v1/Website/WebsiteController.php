@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Website;
 
 use App\Models\Product\Size;
+use App\Models\Vendor\Store;
 use Illuminate\Http\Request;
 use App\Models\Product\Color;
 use App\Models\Product\Product;
@@ -34,6 +35,13 @@ class WebsiteController extends Controller
             'productCategories' => $productCategories
         ];
         return $this->successResponse('Data Retrieved Successfully', ['data' => $data]);
+    }
+
+    public function shops()
+    {
+        $shops = Store::take(20)->get();
+        return response()->json($shops);
+
     }
 
 
@@ -68,6 +76,21 @@ class WebsiteController extends Controller
         ];
 
         return $this->successResponse('Data Retrieved Successfully', ['data' => $data]);
+    }
+    public function getShopProducts($shopId)
+    {
+        $shop = Store::findOrFail($shopId);
+        $products = Product::where('store_id', $shopId)->take(50)->get();
+        $productCategories = Category::take(20)->get();
+
+        $data = [
+            'shop' => $shop,
+            'products' => $products,
+            'productCategories' => $productCategories
+        ];
+        return response()->json($data);
+
+        // return $this->successResponse('Data Retrieved Successfully', ['data' => $data]);
     }
 
     public function getCartItems(Request $request)

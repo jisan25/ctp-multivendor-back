@@ -23,7 +23,7 @@ class StoreFactory extends Factory
             'vendor_id' => $this->faker->numberBetween(1, 100),
             'store_name' => $this->faker->company,
             'store_description' => $this->faker->paragraph,
-            'store_logo' => '/images/store-logos/' . $this->faker->numberBetween(1, 30) . '.jpg',
+            'store_logo' => 'images/store-logos/' . $this->faker->numberBetween(1, 30) . '.jpg',
             'store_address' => $this->faker->address,
             'store_phone' => $this->faker->phoneNumber,
             'status' => $this->faker->randomElement([0, 1])

@@ -129,6 +129,6 @@ class CustomerSeeder extends Seeder
         //     Customer::create($customer);
         // }
         // Create 1000 customers using the factory
-        Customer::factory()->count(1000)->create();
+        Customer::factory()->count(100)->create();
     }
 }

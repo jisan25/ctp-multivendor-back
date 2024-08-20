@@ -188,6 +188,7 @@ Route::prefix('v1')->group(function () {
 
     Route::get('/', [WebsiteController::class, 'index']);
     Route::get('products/{product}', [WebsiteController::class, 'show']);
+    Route::get('shops', [WebsiteController::class, 'shops']);
 
 
     /** --- categories ----- */
@@ -200,6 +201,7 @@ Route::prefix('v1')->group(function () {
     Route::get('category-types', [CommonCategoryController::class, 'categoryTypes']);
 
     Route::get('/categoryProduct/{categoryId}', [WebsiteController::class, 'getCategoryProducts']);
+    Route::get('/shopProduct/{shopId}', [WebsiteController::class, 'getShopProducts']);
     Route::post('/cart-items', [WebsiteController::class, 'getCartItems']);
 
     /** --- product attributes ----- */

@@ -50,6 +50,6 @@ class VendorSeeder extends Seeder
         // foreach ($vendors as $vendor) {
         //     Vendor::create($vendor);
         // }
-        Vendor::factory()->count(200)->create();
+        Vendor::factory()->count(100)->create();
     }
 }

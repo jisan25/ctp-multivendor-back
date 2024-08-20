@@ -23,7 +23,7 @@ class OrderFactory extends Factory
 
         return [
             'order_id' => $currentOrderId,
-            'customer_id' => $this->faker->numberBetween(1, 1000),
+            'customer_id' => $this->faker->numberBetween(1, 100),
             'total_amount' => $this->faker->numberBetween(100, 10000),
             'type' => $this->faker->randomElement(["Online", "POS"]),
             'status' => $this->faker->randomElement(["Order Placed", "Order Verified", "Order Ready to Ship", "Order Handover to Courier", "Order Delivered", "Order Cancelled"]),

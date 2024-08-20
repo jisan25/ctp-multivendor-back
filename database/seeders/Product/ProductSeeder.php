@@ -103,6 +103,6 @@ class ProductSeeder extends Seeder
         // ]);
 
         // Create 5000 products using the factory
-        Product::factory()->count(5000)->create();
+        Product::factory()->count(100)->create();
     }
 }

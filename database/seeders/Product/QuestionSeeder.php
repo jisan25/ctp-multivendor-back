@@ -55,6 +55,6 @@ class QuestionSeeder extends Seeder
 
         // ]);
 
-        Question::factory()->count(500)->create();
+        Question::factory()->count(100)->create();
     }
 }

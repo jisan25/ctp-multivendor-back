@@ -14,8 +14,8 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_id' => $this->faker->numberBetween(1, 5000),
-            'customer_id' => $this->faker->numberBetween(1, 1000),
+            'product_id' => $this->faker->numberBetween(1, 100),
+            'customer_id' => $this->faker->numberBetween(1, 100),
             'title' => $this->faker->sentence(5, true),
             'answer' => $this->faker->paragraph,
         ];

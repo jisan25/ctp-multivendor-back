@@ -65,6 +65,6 @@ class OrderDetailsSeeder extends Seeder
         //     'delivery_fee' => 120,
 
         // ]);
-        OrderDetails::factory()->count(1000)->create();
+        OrderDetails::factory()->count(100)->create();
     }
 }

@@ -48,6 +48,6 @@ class ReviewSeeder extends Seeder
         //     'comment' => 'Better Quality',
         // ]);
 
-        Review::factory()->count(500)->create();
+        Review::factory()->count(100)->create();
     }
 }

@@ -65,6 +65,6 @@ class OrderSeeder extends Seeder
         //     'status' => 'Order Cancelled',
         //     'store_id' => 4
         // ]);
-        Order::factory()->count(1000)->create();
+        Order::factory()->count(100)->create();
     }
 }
