@@ -3,11 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Auth\AuthController;
-use App\Http\Controllers\Api\v1\admin\OrderController;
+use App\Http\Controllers\Api\v1\Admin\OrderController;
 use App\Http\Controllers\Api\v1\Admin\ReviewController;
 use App\Http\Controllers\Api\v1\Admin\VendorController;
 use App\Http\Controllers\Api\v1\Admin\PaymentController;
-use App\Http\Controllers\Api\v1\admin\ProductController;
+use App\Http\Controllers\Api\v1\Admin\ProductController;
 use App\Http\Controllers\Api\v1\Admin\CategoryController;
 use App\Http\Controllers\Api\v1\Admin\CustomerController;
 use App\Http\Controllers\Api\v1\Admin\QuestionController;
