@@ -14,42 +14,24 @@ class VendorSeeder extends Seeder
      */
     public function run(): void
     {
-        // $vendors = [
-        //     [
-        //         'full_name' => 'Abdul Khalek',
-        //         'email' => 'vendor1@gmail.com',
-        //         'password' => Hash::make('vpassword1'),
-        //         'status' => 1
-        //     ],
-        //     [
-        //         'full_name' => 'Rahim Uddin',
-        //         'email' => 'vendor2@gmail.com',
-        //         'password' => Hash::make('vpassword2'),
-        //         'status' => 0
-        //     ],
-        //     [
-        //         'full_name' => 'Karim Ali',
-        //         'email' => 'vendor3@gmail.com',
-        //         'password' => Hash::make('vpassword3'),
-        //         'status' => 1
-        //     ],
-        //     [
-        //         'full_name' => 'Sajid Hasan',
-        //         'email' => 'vendor4@gmail.com',
-        //         'password' => Hash::make('vpassword4'),
-        //         'status' => 0
-        //     ],
-        //     [
-        //         'full_name' => 'Hasan Mahmud',
-        //         'email' => 'vendor5@gmail.com',
-        //         'password' => Hash::make('vpassword5'),
-        //         'status' => 0
-        //     ]
-        // ];
+        $vendors = [
+            [
+                'full_name' => 'Abdul Khalek',
+                'email' => 'vendor1@gmail.com',
+                'password' => Hash::make('vpassword1'),
+                'status' => 1
+            ],
+            [
+                'full_name' => 'Rahim Uddin',
+                'email' => 'vendor2@gmail.com',
+                'password' => Hash::make('vpassword2'),
+                'status' => 1
+            ],
+        ];
 
-        // foreach ($vendors as $vendor) {
-        //     Vendor::create($vendor);
-        // }
+        foreach ($vendors as $vendor) {
+            Vendor::create($vendor);
+        }
         Vendor::factory()->count(100)->create();
     }
 }
