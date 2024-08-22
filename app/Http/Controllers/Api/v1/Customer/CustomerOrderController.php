@@ -22,14 +22,14 @@ class CustomerOrderController extends Controller
     {
 
 
-        $query = Order::where('customer_id', Auth::id());
+        $query = Order::where('customer_id', Auth::id())->orderBy('id', 'desc');
 
 
         $search_columns = ["order_id"];
 
         $this->applyFilterSortSearch($search_columns, $query, $request);
 
-        $orders = $query->with('store', 'orderDetails.product')->paginate(10);
+        $orders = $query->with('store', 'orderDetails.product')->paginate(100);
 
         return $this->successResponse('Data Retrieved Successfully', ['customer_orders' => $orders]);
     }
