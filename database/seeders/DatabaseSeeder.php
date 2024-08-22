@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
             ProductAttributeSeeder::class,
             ProductGallerySeeder::class,
             ProductVariantImageSeeder::class,
+            ShippingSeeder::class,
             SqlFileSeeder::class
         ]);
     }

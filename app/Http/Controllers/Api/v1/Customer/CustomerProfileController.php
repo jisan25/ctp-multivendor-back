@@ -20,7 +20,7 @@ class CustomerProfileController extends Controller
     public function index()
     {
         // $customer_id = MethodHelper::getCustomerId();
-        $data = Customer::with('division', 'district', 'upazila')->findOrFail(Auth::id());
+        $data = Customer::with('division', 'district', 'upazila', 'shippings')->findOrFail(Auth::id());
         return $this->successResponse('Data Retrieved Successfully', ['profile' => $data]);
     }
 

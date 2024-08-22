@@ -5,6 +5,7 @@ namespace App\Models\Customer;
 use App\Models\Product\Order;
 use App\Models\Product\Question;
 use App\Models\Product\Review;
+use App\Models\Shipping;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +23,11 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+    public function shippings()
+    {
+        return $this->hasMany(Shipping::class);
+    }
+
 
     public function division()
     {
